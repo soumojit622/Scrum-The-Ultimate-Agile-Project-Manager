@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import { QueryProvider } from "@/components/query-provider";
+import { Toaster } from "sonner";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
         className={cn(outfit.className, "antialiased min-h-screen")}
       >
         <QueryProvider>
+          <Toaster />
           {children}
         </QueryProvider>
       </body>
