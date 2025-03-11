@@ -28,9 +28,6 @@ import { UserPlus } from "lucide-react"
 import { useRegister } from "../api/use-register"
 // import { signUpWithGithub, signUpWithGoogle } from "@/lib/oauth"
 
-
-
-
 export const SignUpCard = () => {
 
   const { mutate, isPending } = useRegister();
