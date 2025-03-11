@@ -25,7 +25,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { registerSchema } from "../schemas"
 import { UserPlus } from "lucide-react"
-// import { useRegister } from "../api/use-register"
+import { useRegister } from "../api/use-register"
 // import { signUpWithGithub, signUpWithGoogle } from "@/lib/oauth"
 
 
@@ -33,7 +33,7 @@ import { UserPlus } from "lucide-react"
 
 export const SignUpCard = () => {
 
-  // const { mutate, isPending } = useRegister();
+  const { mutate, isPending } = useRegister();
 
   const form = useForm<z.infer<typeof registerSchema>>({
     resolver: zodResolver(registerSchema),
@@ -45,9 +45,7 @@ export const SignUpCard = () => {
   });
 
   const onSubmit = (values: z.infer<typeof registerSchema>) => {
-    // mutate({ json: values });
-    console.log({ values });
-
+    mutate({ json: values });
   }
 
   return (
@@ -125,7 +123,7 @@ export const SignUpCard = () => {
               )}
             />
             <Button
-              // disabled={isPending}
+              disabled={isPending}
               size="lg"
               className="w-full flex items-center gap-x-2 justify-center"
             >
@@ -141,7 +139,7 @@ export const SignUpCard = () => {
       <CardContent className="p-7 flex flex-col gap-y-4">
         <Button
           // onClick={() => signUpWithGoogle()}
-          // disabled={isPending}
+          disabled={isPending}
           variant="secondary"
           size="lg"
           className="w-full"
@@ -151,7 +149,7 @@ export const SignUpCard = () => {
         </Button>
         <Button
           // onClick={() => signUpWithGithub()}
-          // disabled={isPending}
+          disabled={isPending}
           variant="secondary"
           size="lg"
           className="w-full"

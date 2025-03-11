@@ -24,14 +24,14 @@ import {
 import Link from "next/link"
 import { loginSchema } from "../schemas"
 import { LogIn } from "lucide-react"
-// import { useLogin } from "../api/use-login"
+import { useLogin } from "../api/use-login"
 // import { signUpWithGithub, signUpWithGoogle } from "@/lib/oauth"
 
 
 
 export const SignInCard = () => {
 
-    // const { mutate, isPending } = useLogin()
+    const { mutate, isPending } = useLogin()
 
     const form = useForm<z.infer<typeof loginSchema>>({
         resolver: zodResolver(loginSchema),
@@ -42,9 +42,7 @@ export const SignInCard = () => {
     });
 
     const onSubmit = (values: z.infer<typeof loginSchema>) => {
-        // mutate({ json: values })
-        console.log({ values });
-
+        mutate({ json: values })
     }
 
     return (
@@ -96,7 +94,7 @@ export const SignInCard = () => {
                             )}
                         />
                         <Button
-                            // disabled={isPending}
+                            disabled={isPending}
                             size="lg"
                             className="w-full flex items-center gap-x-2 justify-center"
                         >
@@ -112,7 +110,7 @@ export const SignInCard = () => {
             <CardContent className="p-7 flex flex-col gap-y-4">
                 <Button
                     // onClick={() => signUpWithGoogle()}
-                    // disabled={isPending}
+                    disabled={isPending}
                     variant="secondary"
                     size="lg"
                     className="w-full"
@@ -122,7 +120,7 @@ export const SignInCard = () => {
                 </Button>
                 <Button
                     // onClick={() => signUpWithGithub()}
-                    // disabled={isPending}
+                    disabled={isPending}
                     variant="secondary"
                     size="lg"
                     className="w-full"
