@@ -9,8 +9,8 @@ const outfit = Outfit({ subsets: ["latin"] });
 
 
 export const metadata: Metadata = {
-  title: "Scrum | The Ultimate Agile Project Manager",
-  description: "Scrum - Streamline your workflow, collaborate efficiently, and manage projects like a pro.",
+  title: "Webflow | The Ultimate Agile Project Manager",
+  description: "Webflow - Streamline your workflow, collaborate efficiently, and manage projects like a pro.",
 };
 
 
